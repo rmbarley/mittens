@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 
 var Post = mongoose.model("Post");
 
-router.use(function(req, res, next) {
+function isAuthenticated (req, res, next) {
 
   if (req.method === "GET") {
     // Let all users see posts
@@ -17,7 +17,10 @@ router.use(function(req, res, next) {
   }
 
   return next();
-});
+};
+
+//Register the authentication middleware
+router.use('/posts', isAuthenticated);
 
 router.route("/posts")
   // Return all posts
@@ -33,7 +36,7 @@ router.route("/posts")
   .post(function(req, res) {
     var post = new Post();
     post.text = req.body.text;
-    post.username = req.body.created_by;
+    post.username = req.body.username;
     post.save(function(err, post) {
       if (err) {
         return res.send(500, err);

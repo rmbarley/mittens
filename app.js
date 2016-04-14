@@ -9,8 +9,11 @@ var passport = require("passport");
 var mongoose = require("mongoose");
 
 // Connect to MongoDB
-
-mongoose.connect("mongodb://heroku_g028xhth:suaf6sfskpki0nnd40ivt2d70g@ds023560.mlab.com:23560/heroku_g028xhth");
+if (process.env.DEV_ENV) {
+  mongoose.connect("mongodb://heroku_g028xhth:suaf6sfskpki0nnd40ivt2d70g@ds023560.mlab.com:23560/heroku_g028xhth");
+} else {
+  mongoose.connect("mongodb://localhost:27017/mittens2");
+}
 
 require("./models/models.js");
 

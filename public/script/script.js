@@ -57,7 +57,6 @@ app.controller("authController", function($scope, $rootScope, $http, $location) 
   $scope.user = { username: "", password: "" };
   $scope.error_message = "";
 
-  // Placeholders until authentication is implemented.
   $scope.login = function() {
     $http.post("/auth/login", $scope.user).success(function(data) {
       if (data.state == "success") {
