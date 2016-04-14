@@ -10,9 +10,10 @@ var mongoose = require("mongoose");
 
 // Connect to MongoDB
 if (process.env.DEV_ENV) {
-  mongoose.connect("mongodb://heroku_g028xhth:suaf6sfskpki0nnd40ivt2d70g@ds023560.mlab.com:23560/heroku_g028xhth");
-} else {
   mongoose.connect("mongodb://localhost:27017/mittens2");
+
+} else {
+  mongoose.connect("mongodb://heroku_g028xhth:suaf6sfskpki0nnd40ivt2d70g@ds023560.mlab.com:23560/heroku_g028xhth");
 }
 
 require("./models/models.js");
