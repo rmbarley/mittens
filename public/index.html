@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mittens</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body ng-app="mittensApp">
+  <nav class="navbar-fluid navbar-default navbar-fixed-top">
+    <div class="container">
+      <a href="#/" class="navbar-brand">Mittens</a>
+      <p class="navbar-text">A MEAN-stack app</p>
+      <p class="navbar-text navbar-right" ng-hide="authenticated"><a href="#/login">Login</a> or <a href="#/signup">Register</a></p>
+      <p class="navbar-text navbar-right" ng-show="authenticated"><a href="#" ng-click="signout()">Logout</a></p>
+      <p class="navbar-text navbar-right" ng-show="authenticated">Signed in as {{ currentUser }}</p>
+    </div>
+  </nav>
+  <div id="main" class="container">
+    <div class="col-md-offset-2 col-md-8">
+      <div class="clearfix">
+        <div ng-view></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-route.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.4/angular-resource.min.js"></script>
+  <script src="script/script.js"></script>
+</body>
+
+</html>
